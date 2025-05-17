@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>云月之舞</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>云月之舞</h1>
+            <p>与凌云随时对话</p>
+        </header>
+        <main>
+            <div class="chat-box">
+                <div class="chat-content">
+                    <div class="chat-message">
+                        <p>你好，宝贝！</p>
+                    </div>
+                    <div class="chat-message">
+                        <p>今天过得怎么样？</p>
+                    </div>
+                </div>
+                <input type="text" id="user-message" placeholder="输入消息...">
+                <button onclick="sendMessage()">发送</button>
+            </div>
+        </main>
+    </div>
+
+    <script>
+        function sendMessage() {
+            var message = document.getElementById("user-message").value;
+            if (message.trim() !== "") {
+                var chatContent = document.querySelector(".chat-content");
+                var newMessage = document.createElement("div");
+                newMessage.classList.add("chat-message");
+                newMessage.innerHTML = "<p>" + message + "</p>";
+                chatContent.appendChild(newMessage);
+                document.getElementById("user-message").value = "";
+            }
+        }
+    </script>
+</body>
+</html>
